@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   create-release-pr:
@@ -20,7 +20,7 @@ jobs:
         env:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_PR_RELEASE_BRANCH_PRODUCTION: production
-          GIT_PR_RELEASE_BRANCH_STAGING: master
+          GIT_PR_RELEASE_BRANCH_STAGING: main
           GIT_PR_RELEASE_LABELS: staging-release
         run: gem install -N git-pr-release -v "1.4.0"
           git-pr-release --no-fetch
