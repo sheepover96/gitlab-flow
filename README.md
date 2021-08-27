@@ -10,3 +10,6 @@
 - add test text8
 - add test text9
 - hotfix 1
+- add test text12
+- add test text13
+- hotfix 2
