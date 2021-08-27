@@ -22,3 +22,4 @@
 - add test text16
 - add test text17
 - hotfix 5
+- hotfix 6
