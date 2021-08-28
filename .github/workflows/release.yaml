@@ -1,6 +1,6 @@
 on:
   push:
-    branches: [pre-production]
+    branches: [main]
 
 jobs:
   create-release-pr:
@@ -19,8 +19,8 @@ jobs:
       - name: Create Staging release pull Request
         env:
           GIT_PR_RELEASE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GIT_PR_RELEASE_BRANCH_PRODUCTION: production
-          GIT_PR_RELEASE_BRANCH_STAGING: pre-production
+          GIT_PR_RELEASE_BRANCH_PRODUCTION: pre-production
+          GIT_PR_RELEASE_BRANCH_STAGING: main
           GIT_PR_RELEASE_LABELS: staging-release
         run: |
           gem install -N git-pr-release -v "1.9.0"
