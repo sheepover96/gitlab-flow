@@ -30,3 +30,5 @@
 - hotfix 9
 - add test text20
 - hotfix 10
+- add test text2
+- add test text22
