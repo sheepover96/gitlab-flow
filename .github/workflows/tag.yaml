@@ -51,10 +51,8 @@ jobs:
 
       - name: Create Prd Release Pull Request
         id: create_release_pr
-        uses: peter-evans/create-pull-request@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: repo-sync/pull-request@v2
         with:
-          title: Release v${{ steps.get_version.outputs.VERSION }}
-          base: production
-          branch: release/${{ steps.get_version.outputs.VERSION }}
+          pr_title: Release v${{ steps.get_version.outputs.VERSION }}
+          destination_branch: production
+          source_branch: release/${{ steps.get_version.outputs.VERSION }}
