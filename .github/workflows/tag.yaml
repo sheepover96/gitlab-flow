@@ -56,5 +56,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           title: Release v${{ steps.get_version.outputs.VERSION }}
-          base: release/${{ steps.get_version.outputs.VERSION }}
-          branch: production
+          base: production
+          branch: release/${{ steps.get_version.outputs.VERSION }}
