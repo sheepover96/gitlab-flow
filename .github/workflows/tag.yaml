@@ -42,8 +42,19 @@ jobs:
 
       - name: Create Release Branch
         id: create_release_branch
-        uses: peterjgrainger/action-create-branch@v2.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git checkout pre-production
+          git checkout -b release/${{ steps.get_version.outputs.VERSION }}
+          git push origin release/${{ steps.get_version.outputs.VERSION }}
+
+      - name: Create Prd Release Pull Request
+        id: create_release_pr
+        uses: peter-evans/create-pull-request@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          branch: release/${{ steps.get_version.outputs.VERSION }}
+          title: Release v${{ steps.get_version.outputs.VERSION }}
+          base: release/${{ steps.get_version.outputs.VERSION }}
+          branch: production
