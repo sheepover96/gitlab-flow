@@ -19,7 +19,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          pr_title: ${{ github.head_ref }} for main
+          pr_title: "main ${{ env.BRANCH_NAME }}"
           destination_branch: main
           source_branch: ${{ env.BRANCH_NAME }}
 
@@ -29,6 +29,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          pr_title: ${{ github.head_ref }} for Pre-production
+          pr_title: "pre-production ${{ env.BRANCH_NAME }}"
           destination_branch: pre-production
           source_branch: ${{ env.BRANCH_NAME }}
