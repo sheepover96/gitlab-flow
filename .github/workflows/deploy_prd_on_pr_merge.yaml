@@ -12,7 +12,8 @@ jobs:
       - name: Create Prd Release Pull Request
         id: create_release_pr
         run: |
-          cat README.md
+          ls
+          pwd
           echo ${{github.base_ref}}
           echo ${{github.head_ref}}
           curl https://google.com
