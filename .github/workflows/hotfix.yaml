@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
 
       - name: Main Create Hotfix Pull Request
-        id: preproduction_create_hotfix_pr
+        id: main_create_hotfix_pr
         uses: repo-sync/pull-request@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
