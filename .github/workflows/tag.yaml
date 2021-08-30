@@ -55,6 +55,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          pr_title: Release v${{ steps.get_version.outputs.VERSION }}
+          pr_title: Release ${{ steps.get_version.outputs.VERSION }}
           destination_branch: production
           source_branch: release/${{ steps.get_version.outputs.VERSION }}
