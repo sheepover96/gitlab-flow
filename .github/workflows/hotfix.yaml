@@ -13,12 +13,22 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Main Create Hotfix Pull Request
+        id: preproduction_create_hotfix_pr
+        uses: repo-sync/pull-request@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          pr_title: "${{ env.BRANCH_NAME }} for main"
+          destination_branch: main
+          source_branch: ${{ env.BRANCH_NAME }}
+
       - name: Pre-Production Create Hotfix Pull Request
         id: preproduction_create_hotfix_pr
         uses: repo-sync/pull-request@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          pr_title: ${{ env.BRANCH_NAME }} for Pre-Production
+          pr_title: "${{ env.BRANCH_NAME }} for Pre-production"
           destination_branch: pre-production
           source_branch: ${{ env.BRANCH_NAME }}
