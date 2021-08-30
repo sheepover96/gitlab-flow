@@ -2,9 +2,6 @@ on:
   push:
     branches: ["hotfix/*"]
 
-env:
-  BRANCH_NAME: ${{ github.head_ref }}
-
 jobs:
   create_hotfix_pr:
     runs-on: ubuntu-latest
@@ -19,9 +16,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          pr_title: "main ${{ env.BRANCH_NAME }}"
+          pr_title: "main ${{ github.ref }}"
           destination_branch: main
-          source_branch: ${{ env.BRANCH_NAME }}
 
       - name: Pre-Production Create Hotfix Pull Request
         id: preproduction_create_hotfix_pr
@@ -29,6 +25,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          pr_title: "pre-production ${{ env.BRANCH_NAME }}"
+          pr_title: "pre-production ${{ github.ref }}"
           destination_branch: pre-production
-          source_branch: ${{ env.BRANCH_NAME }}
