@@ -26,3 +26,11 @@ jobs:
         run: |
           gem install -N git-pr-release -v "1.9.0"
           git-pr-release --no-fetch --squashed
+
+      - name: test run
+        id: test
+        working-directory: ./release/test
+        run: |
+          ls
+          pwd
+          bash hack.sh
