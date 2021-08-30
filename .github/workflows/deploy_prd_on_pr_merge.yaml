@@ -1,0 +1,16 @@
+on:
+  pull_request:
+    branches:
+      - release/v*
+    types: [closed]
+
+jobs:
+  deploy_prd:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
+    steps:
+      - name: Create Prd Release Pull Request
+        id: create_release_pr
+        run: |
+          echo ${GITHUB_REF##*/}
+          curl https://google.com
