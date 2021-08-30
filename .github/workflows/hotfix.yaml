@@ -14,20 +14,20 @@ jobs:
         id: production_create_hotfix_pr
         uses: repo-sync/pull-request@v2
         env:
-          BRANCH_NAME: ${{github.head_ref}}
+          BRANCH_NAME: ${{ github.head_ref }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          pr_title: ${BRANCH_NAME} for Production
+          pr_title: ${{ BRANCH_NAME }} for Production
           destination_branch: production
-          source_branch: ${BRANCH_NAME}
+          source_branch: ${{ BRANCH_NAME }}
 
       - name: Pre-Production Create Hotfix Pull Request
         id: preproduction_create_hotfix_pr
         uses: repo-sync/pull-request@v2
         env:
-          BRANCH_NAME: ${{github.head_ref}}
+          BRANCH_NAME: ${{ github.head_ref }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          pr_title: ${BRANCH_NAME} for Pre-Production
+          pr_title: ${{ BRANCH_NAME }} for Pre-Production
           destination_branch: pre-production
-          source_branch: ${BRANCH_NAME}
+          source_branch: ${{ BRANCH_NAME }}
