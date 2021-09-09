@@ -53,3 +53,9 @@
 - add test text40
 - add test text41
 - add test text42
+- hotfix 12-3
+- hotfix 13-5
+- hotfix 14
+- hotfix 15-2
+- add test text43
+- add test text44

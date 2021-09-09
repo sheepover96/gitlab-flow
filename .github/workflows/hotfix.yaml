@@ -1,0 +1,37 @@
+on:
+  push:
+    branches: ["hotfix/*"]
+
+env:
+  BRANCH_NAME: $(echo ${GITHUB_REF#refs/heads/})
+
+jobs:
+  create_hotfix_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: get_branch_name
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Main Create Hotfix Pull Request
+        id: main_create_hotfix_pr
+        uses: repo-sync/pull-request@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          pr_title: "main ${{ env.BRANCH_NAME }}"
+          destination_branch: main
+
+      - name: Pre-Production Create Hotfix Pull Request
+        id: preproduction_create_hotfix_pr
+        uses: repo-sync/pull-request@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          pr_title: "pre-production ${{ steps.get_branch_name.outputs.branch }}"
+          destination_branch: pre-production
