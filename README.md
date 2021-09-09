@@ -59,3 +59,4 @@
 - hotfix 15-2
 - add test text43
 - add test text44
+- add test text45
