@@ -7,7 +7,7 @@ on:
 jobs:
   deploy_prd:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && contains(github.head_ref, "release/${{github.base_ref}}")
+    if: github.event.pull_request.merged == true && contains(github.head_ref, "release")
     steps:
       - name: Create Prd Release Pull Request
         id: create_release_pr
