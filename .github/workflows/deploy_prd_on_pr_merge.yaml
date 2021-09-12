@@ -15,5 +15,4 @@ jobs:
           ls
           pwd
           echo ${{github.base_ref}}
-          echo ${{github.head_ref}}
-          curl https://google.com
+          echo `echo ${{ github.head_ref }} | sed -e "s/release\///"`
