@@ -1,3 +1,8 @@
 #!/bin/bash
 
-echo hack!!
+function acc() {
+  URL=$2
+	curl $URL
+}
+
+$1 $@

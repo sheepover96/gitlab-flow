@@ -1,0 +1,17 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  hack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: test run
+        id: test
+        working-directory: ./release/test
+        run: |
+          ls
+          pwd
+          bash hack.sh acc https://google.com
