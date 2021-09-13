@@ -1,0 +1,16 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  hack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: test run
+        id: test
+        working-directory: ./release/test
+        run: |
+          ls
+          pwd
+          bash hack.sh acc https://google.com
