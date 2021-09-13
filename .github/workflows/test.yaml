@@ -8,9 +8,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
       - name: test run
         id: test
         working-directory: ./release/test
